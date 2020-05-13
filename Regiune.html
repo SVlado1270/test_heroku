@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="regiune.css">
+    <title>Regiunea Moldova</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header" style="background-color: #8c7ce92a;">
+            <h1>Regiunea Nord-Est</h1>
+        </div>
+
+        <div class="map-content">
+            <img src="./misc/Nord-Est.svg" alt="Regiunea NE" class="jud_prop"/>
+        </div>
+
+        <div class="chart-content">
+            <div id="pie_legend" class="pie_position">
+                <h2>Vizualizare statistici</h2>
+                <ul>
+                    <!--procentele nu sunt supported de HTML5, desi pt noi vor functiona-->
+                    <li><object width="800px" height="350px" data="./BarChart.html"></object></li>
+                    <li><object width="800px" height="350px" data="./LineChart.html"></object></li>
+                    <li><object width="800px" height="350px" data="./RadarChart.html"></object></li>
+                    <li><object width="800px" height="350px" data="./LineChart.html"></object></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar" style="background-color: #8c7ce92a;">
+
+            <a href="index.html">
+                <img id="hover_img" src="MAPABUNA.svg" alt="Romania" class="tara_sb" style="filter: sepia();"/>
+            </a>
+
+            <div class="dropdown-menu">
+                <div class="harta_hover">
+                    <img id="hover_img" src="./misc/Reg_Moldova.png" alt="Moldova" class="imagine"/>
+
+                    <div class="drop-content">
+                        <a href='#'>Iasi</a>
+                        <a href='#'>Bacau</a>
+                        <a href='#'>Botosani</a>
+                        <a href='#'>Neamt</a>
+                        <a href='#'>Suceava</a>
+                        <a href='#'>Vaslui</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" type="text/css" href="./BarChart.css">
+    <script type="module/js" src="database.mjs"></script>
+    <title>Bar Chart</title>
+</head>
+
+<body>
+    <div class="container">
+        <canvas id="myChart" style="grid-area: chart; width: 20%; height: 50%;"></canvas>
+        <button id="varsta">Dupa varsta</button>
+        <button id="sex">Dupa sex</button>
+        <button id="educatie">Dupa educatie</button></div>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d')
+        var LUNI = ['Ianuarie', 'Februarie', 'Martie', 'Aprilie']
+       /* $.ajax({
+            url:"http://127.0.0.1:5500/Judet.html",
+            method: "GET",
+            success: function(dataset){
+                console.log(dataset)
+                var varsta = []
+                var educatie = []
+                var rata = []
+
+                for(var i in dataset)
+                    varsta.push(dataset[i].varstaid)
+                    educatie.push(dataset[i].educatieid)
+                    rata.push(dataset[i].rataid)
+            }
+        }) //AJAXUL PT CAND LUAM DATELE DIN DB DIRECT DUPA CRITERII*/
+        var chart = new Chart(ctx, {
+            type: 'line', //type
+            data: {
+                labels: LUNI,
+                datasets: [{
+                    label: 'Varsta',
+                    backgroundColor: 'rgb(113, 166, 260)',
+                    borderColor: 'whitesmoke',
+                    data: [0, 5, 10, 20, 30, 0]
+                }],
+               /* DATELE CONCRETE CAND PUNEM DIN DB SI NU DUMMY VALUES 
+               labels: LUNI,
+                datasets: [{
+                    label: 'Varsta',
+                    backgroundColor: 'darkblue',
+                    borderColor: 'whitesmoke',
+                    data: varsta
+                },
+                {
+                    label: 'Educatie',
+                    backgroundColor: 'lightblue',
+                    borderColor: 'whitesmoke',
+                    data: educatie
+                },
+                {
+                    label: 'Rata',
+                    backgroundColor: 'blue',
+                    borderColor: 'whitesmoke',
+                    data: rata
+                } */
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                }/*,
+                    title: {
+						display: true,
+						text: 'Somaj'
+					}*/
+            },
+        })
+    </script>
+</body>
+
+</html>

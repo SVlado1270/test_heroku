@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./BarChart.css">
+    <script src="database.mjs"  type="module/js"></script>
+    <title>Bar Chart</title>
+</head>
+
+<body>
+    <div class="container">
+    <canvas id="myChart" style="grid-area: chart; width: 20%; height: 50%;"></canvas>
+    <button id="varsta">Dupa varsta</button>
+    <button id="sex">Dupa sex</button>
+    <button id="educatie">Dupa educatie</button></div>
+    <script>
+function BuildChart(labels, values, chartTitle) {
+    var data = {
+    labels: labels,
+    datasets: [{
+      label: chartTitle,
+      data: values,
+      backgroundColor: 'rgb(113, 166, 260)',
+                borderColor: 'whitesmoke',
+                hoverbackgroundColor: 'black',
+                hoverborderColor: 'white',
+    }]
+  };
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,  
+      scales: {
+        xAxes: [{
+          scaleLabel: {
+            display: true
+          }
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true
+          }
+        }]
+      },
+    }
+  });
+  return myChart;
+}
+var url = ''
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function () {
+  if (this.readyState == 4 && this.status == 200) {
+    var json = JSON.parse(this.response);
+    var labels = json.map(function (dataset) {
+      return dataset.name;
+    });
+
+    var values = json.map(function (data) {
+      return (data.judet);
+    });
+    BuildChart(labels, values, "Luna");
+  }
+};
+xhttp.open("GET", url, false);
+xhttp.send();
+</script>
+
+
+<!--AJAX CU JQUERY FUNCTIONAL PT VERIFICAT FUNCTIONALITATEA DB PANA STABILIM TOATE CRITERIILE-->
+   <!-- <script>
+        var ctx = document.getElementById('myChart').getContext('2d')
+        var LUNI = ['Ianuarie', 'Februarie', 'Martie', 'Aprilie']
+       /* $.ajax({
+            url:"http://127.0.0.1:5500/Judet.html",
+            method: "GET",
+            success: function(dataset){
+                console.log(dataset)
+                var varsta = []
+                var educatie = []
+                var rata = []
+
+                for(var i in dataset)
+                    varsta.push(dataset[i].varstaid)
+                    educatie.push(dataset[i].educatieid)
+                    rata.push(dataset[i].rataid)
+            }
+        }) //AJAXUL PT CAND LUAM DATELE DIN DB DIRECT DUPA CRITERII*/
+        var chart = new Chart(ctx, {
+            type: 'bar', //type
+            data: {
+                labels: LUNI,
+                datasets: [{
+                    label: 'Varsta',
+                    backgroundColor: 'rgb(113, 166, 260)',
+                    borderColor: 'whitesmoke',
+                    data: [8, 10, 20, 25, 18, 5]
+                }],
+               /* DATELE CONCRETE CAND PUNEM DIN DB SI NU DUMMY VALUES 
+               labels: LUNI,
+                datasets: [{
+                    label: 'Varsta',
+                    backgroundColor: 'darkblue',
+                    borderColor: 'whitesmoke',
+                    data: varsta
+                },
+                {
+                    label: 'Educatie',
+                    backgroundColor: 'lightblue',
+                    borderColor: 'whitesmoke',
+                    data: educatie
+                },
+                {
+                    label: 'Rata',
+                    backgroundColor: 'blue',
+                    borderColor: 'whitesmoke',
+                    data: rata
+                } */
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                }/*,
+                    title: {
+						display: true,
+						text: 'Somaj'
+					}*/
+            },
+            scales: {
+                        xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Rating options'
+                            }
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Amount'
+                            },
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+        })
+    </script>-->
+</body>
+
+</html>

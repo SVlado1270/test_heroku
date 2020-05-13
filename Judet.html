@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <link rel="stylesheet" type="text/css" href="Judet.css">
+    <script src="database.php"></script>
+    <title>Judetul Iasi</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header" style="background-color: #8c7ce933;">
+            <h1>Jude&tcedil;ul Ia&scedil;i</h1>
+        </div>
+        <div class="map-content">
+            <img src="./misc/Jud_Iasi.png" alt="Iasi" class="jud_prop" style="filter: sepia();" />
+        </div>
+        <div class="chart-content">
+            <div id="pie_legend" class="pie_position">
+                <h2>Vizualizare statistici</h2>
+                <ul>
+                    <!--procentele nu sunt supported de HTML5, desi pt noi vor functiona-->
+                    <li><object width="800px" height="350px" data="./BarChart.html"></object></li>
+                    <li><object width="800px" height="350px" data="./LineChart.html"></object></li>
+                    <li><object width="800px" height="350px" data="./RadarChart.html"></object></li>
+                    <li><object width="800px" height="350px" data="./LineChart.html"></object></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar" style="background-color: #7c83e92f;">
+            <a href="Regiune.html">
+                <img id="hover_img" src="./misc/Reg_Moldova.png" alt="Moldova" class="reg_prop" />
+            </a>
+            <a href="index.html">
+                <img id="hover_img" src="MAPABUNA.svg" alt="Romania" class="tara_sb" style="filter: sepia();" />
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
