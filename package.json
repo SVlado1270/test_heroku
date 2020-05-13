@@ -5,7 +5,7 @@
   "description": "",
   "main": "test.mjs",
   "scripts": {
-    "start": "node src/test.mjs",
+    "start": "node test.mjs",
     "build": "webpack",
     "heroku-postbuild": "pwd"
   },
