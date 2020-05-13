@@ -3,9 +3,9 @@
   "type" : "module",
   "version": "1.0.0",
   "description": "",
-  "main": "api.mjs",
+  "main": "test.mjs",
   "scripts": {
-    "start": "node src/api.mjs",
+    "start": "node src/test.mjs",
     "build": "webpack",
     "heroku-postbuild": "pwd"
   },
